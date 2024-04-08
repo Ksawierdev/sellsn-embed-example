@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sellsn Video</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .card {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .button {
+            display: block;
+            width: 150px;
+            padding: 10px 20px;
+            margin: 20px auto;
+            background-color: #800080;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0000ff;
+        }
+
+        .message {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #000;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+
+        .star {
+            position: absolute;
+            color: #ff00f2;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2 style="color: white;">Buy Now</h2>
+        <button id="buyButton" class="button" data-sellsn-sid="7b36ce5a-8c6a-4dde-bc4b-6088439b32b3" data-sellsn-pid="efb9d94a-2480-4bbd-ab91-abb48021efa5">BUY NOW</button>
+    </div>
+
+    <div id="message" class="message"></div>
+
+    <footer>Site made by cyprian</footer>
+    
+    <script type="text/javascript" src="https://pay.sellsn.io/embed.min.js"></script>
+    <script>
+        document.addEventListener('mousemove', function(e) {
+            const star = document.createElement('span');
+            star.classList.add('star');
+            star.innerHTML = '&#9733;';
+            star.style.left = e.pageX + 'px';
+            star.style.top = e.pageY + 'px';
+            document.body.appendChild(star);
+            setTimeout(() => {
+                star.remove();
+            }, 50);
+        });
+    </script>
+</body>
+</html>
